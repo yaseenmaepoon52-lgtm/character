@@ -71,6 +71,22 @@
     border-bottom: 1px solid var(--gold);
   }
 
+  .subheading-container {
+    padding: 24px 32px 0px 32px;
+    text-align: left;
+    border-bottom: 1px solid var(--gold);
+    margin-bottom: -1px; /* Overlap with columns border if needed, or keep to separate */
+  }
+
+  .subheading {
+    font-family: 'Noto Serif Thai', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--gold-soft);
+    margin: 0;
+    padding-bottom: 16px;
+  }
+
   .kicker{
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
@@ -262,6 +278,10 @@
         <h1>The Members</h1>
       </div>
 
+      <div class="subheading-container">
+        <h2 class="subheading">หัวข้อย่อย</h2>
+      </div>
+
       <div class="columns">
 
         <div class="col">
@@ -323,6 +343,9 @@
 
     </div>
 
+    <footer>
+      หน้าเว็บนี้พัฒนาบนกิ่ง develop
+    </footer>
   </div>
 </body>
 </html>
