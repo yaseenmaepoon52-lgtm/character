@@ -46,7 +46,7 @@
   }
 
   .page{
-    max-width: 1040px;
+    max-width: 1300px; 
     margin: 0 auto;
     padding: 64px 24px 96px;
     animation: riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -90,11 +90,11 @@
 
   .columns{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr); 
   }
 
   .col{
-    padding: 40px 32px 44px;
+    padding: 40px 16px 44px;
     text-align: center;
     border-right: 1px solid var(--line);
     animation: fadeInStagger 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -104,6 +104,8 @@
   .col:nth-child(1){ animation-delay: 0.05s; }
   .col:nth-child(2){ animation-delay: 0.15s; }
   .col:nth-child(3){ animation-delay: 0.25s; }
+  .col:nth-child(4){ animation-delay: 0.35s; }
+  .col:nth-child(5){ animation-delay: 0.45s; }
 
   .col:hover{
     background: rgba(201,162,75,0.05);
@@ -116,7 +118,7 @@
   .name{
     font-family: 'Noto Serif Thai', serif;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px; 
     color: var(--parchment);
     margin: 0 0 8px;
     padding-bottom: 8px;
@@ -127,9 +129,9 @@
   .role{
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--gold-soft);
-    margin: 0 0 28px;
+    margin: 0 0 24px;
   }
 
   .photo-frame{
@@ -221,7 +223,18 @@
     color: rgba(239,230,211,0.4);
   }
 
-  @media (max-width: 720px){
+  @media (max-width: 900px){
+    .columns{
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .col{
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .col:nth-child(even){ border-right: none; }
+  }
+
+  @media (max-width: 600px){
     .columns{
       grid-template-columns: 1fr;
     }
@@ -256,7 +269,7 @@
           <p class="role">หัวหน้ากลุ่ม</p>
           <div class="photo-frame">
             <div class="photo">
-              <img src="person1.png" alt="ชื่อสมาชิกคนที่ 1">
+              <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 1">
             </div>
           </div>
           <a class="view-link" href="person1.html">ดูข้อมูล</a>
@@ -267,7 +280,7 @@
           <p class="role">สมาชิก</p>
           <div class="photo-frame">
             <div class="photo">
-              <img src="person2.png" alt="ชื่อสมาชิกคนที่ 2">
+              <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 2">
             </div>
           </div>
           <a class="view-link" href="person2.html">ดูข้อมูล</a>
@@ -278,7 +291,7 @@
           <p class="role">สมาชิก</p>
           <div class="photo-frame">
             <div class="photo">
-              <img src="person3.png" alt="ชื่อสมาชิกคนที่ 3">
+              <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 3">
             </div>
           </div>
           <a class="view-link" href="person3.html">ดูข้อมูล</a>
@@ -289,7 +302,7 @@
           <p class="role">สมาชิก</p>
           <div class="photo-frame">
             <div class="photo">
-              <img src="person3.png" alt="ชื่อสมาชิกคนที่ 3">
+              <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 4">
             </div>
           </div>
           <a class="view-link" href="person3.html">ดูข้อมูล</a>
@@ -300,7 +313,7 @@
           <p class="role">สมาชิก</p>
           <div class="photo-frame">
             <div class="photo">
-              <img src="person3.png" alt="ชื่อสมาชิกคนที่ 3">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 5">
             </div>
           </div>
           <a class="view-link" href="person3.html">ดูข้อมูล</a>
@@ -310,9 +323,6 @@
 
     </div>
 
-    <footer>
-      หน้าเว็บนี้พัฒนาบนกิ่ง develop
-    </footer>
   </div>
 </body>
 </html>
