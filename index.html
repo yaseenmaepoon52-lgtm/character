@@ -1,179 +1,134 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page Layout</title>
-    <style>
-        :root {
-            --bg-blue: #007BFF; /* สีน้ำเงินพื้นหลังตามที่ระบุ */
-            --banner-cyan: #8AFAFA; /* สีฟ้าอ่อนสำหรับแบนเนอร์ */
-            --box-bg: #FFFFFF; /* สีขาวสำหรับกล่อง */
-            --border-color: #000000; /* สีดำสำหรับขอบ */
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page Layout</title>
+    <style>
+        :root {
+            --bg-blue: #007BFF; /* สีน้ำเงินพื้นหลังตามที่ระบุ */
+            --banner-cyan: #8AFAFA; /* สีฟ้าอ่อนสำหรับแบนเนอร์ */
+            --box-bg: #FFFFFF; /* สีขาวสำหรับกล่อง */
+            --border-color: #000000; /* สีดำสำหรับขอบ */
+        }
 
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: var(--bg-blue);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-        }
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-blue);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-            /* เพิ่ม padding เล็กน้อยให้ดูสวยงาม */
-            padding: 20px 0;
-        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            /* เพิ่ม padding เล็กน้อยให้ดูสวยงาม */
+            padding: 20px 0;
+        }
 
-        .section {
-            margin-bottom: 50px;
-        }
+        .section {
+            margin-bottom: 50px;
+        }
 
-        .banner {
-            background-color: var(--banner-cyan);
-            border: 2px solid var(--border-color);
-            text-align: center;
-            padding: 15px;
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            /* ใช้ฟอนต์ที่ดูมีความเป็นลายมือเล็กน้อยหรือหนาๆ */
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
-        }
+        .banner {
+            background-color: var(--banner-cyan);
+            border: 2px solid var(--border-color);
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            /* ใช้ฟอนต์ที่ดูมีความเป็นลายมือเล็กน้อยหรือหนาๆ */
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+        }
 
-        .grid-container {
-            display: grid;
-            /* แบ่งเป็น 5 คอลัมน์ขนาดเท่าๆ กัน */
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            padding: 0 10px;
-        }
+        .grid-container {
+            display: grid;
+            /* แบ่งเป็น 5 คอลัมน์ขนาดเท่าๆ กัน */
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 0 10px;
+        }
 
-        .box {
-            background-color: var(--box-bg);
-            border: 2px solid var(--border-color);
-            /* กำหนดสัดส่วนให้เป็นสี่เหลี่ยมผืนผ้าแนวตั้งนิดๆ คล้ายในรูป */
-            aspect-ratio: 4 / 5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: bold;
-            color: #000;
-        }
+        .box {
+            background-color: var(--box-bg);
+            border: 2px solid var(--border-color);
+            /* กำหนดสัดส่วนให้เป็นสี่เหลี่ยมผืนผ้าแนวตั้งนิดๆ คล้ายในรูป */
+            aspect-ratio: 4 / 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+        }
 
-        /* กล่องเดี่ยวด้านล่าง */
-        .single-box-wrapper {
-            padding: 0 10px;
-        }
+        /* กล่องเดี่ยวด้านล่าง */
+        .single-box-wrapper {
+            padding: 0 10px;
+        }
 
-        .single-box {
-            width: 150px; /* กำหนดขนาดคงที่หรือใช้ % ก็ได้ */
-            height: 180px;
-            background-color: var(--box-bg);
-            border: 2px solid var(--border-color);
-        }
+        .single-box {
+            width: 150px; /* กำหนดขนาดคงที่หรือใช้ % ก็ได้ */
+            height: 180px;
+            background-color: var(--box-bg);
+            border: 2px solid var(--border-color);
+        }
 
-        /* จัดการเรื่อง Responsive สำหรับหน้าจอเล็ก */
-        @media (max-width: 600px) {
-            .grid-container {
-                gap: 10px;
-            }
-            .box {
-                font-size: 20px;
-            }
-        }
-    </style>
+        /* จัดการเรื่อง Responsive สำหรับหน้าจอเล็ก */
+        @media (max-width: 600px) {
+            .grid-container {
+                gap: 10px;
+            }
+            .box {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <!-- ส่วนบน -->
-        <div class="section">
-            <div class="banner">
-                NAME
-            </div>
-            
-            <div class="grid-container">
-                <!-- แถวที่ 1 -->
-                <div class="col">
-          <p class="name">อภิรักษ์ มุกดา</p>
-          <p class="role">หัวหน้ากลุ่ม</p>
-          <div class="photo-frame">
-            <div class="photo">
-              <img src="person1.png" alt="ชื่อสมาชิกคนที่ 1">
+    <div class="container">
+        
+        <!-- ส่วนบน -->
+        <div class="section">
+            <div class="banner">
+                NAME
             </div>
-          </div>
-          <a class="view-link" href="person1.html">ดูข้อมูล</a>
-        </div>
-                <div class="col">
-          <p class="name">อภิรักษ์ มุกดา</p>
-          <p class="role">หัวหน้ากลุ่ม</p>
-          <div class="photo-frame">
-            <div class="photo">
-              <img src="person1.png" alt="ชื่อสมาชิกคนที่ 1">
+            
+            <div class="grid-container">
+                <!-- แถวที่ 1 -->
+                <div class="box">รูป</div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                
+                <!-- แถวที่ 2 -->
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
+                <div class="box"></div>
             </div>
-          </div>
-          <a class="view-link" href="person1.html">ดูข้อมูล</a>
         </div>
-                <div class="col">
-          <p class="name">อภิรักษ์ มุกดา</p>
-          <p class="role">หัวหน้ากลุ่ม</p>
-          <div class="photo-frame">
-            <div class="photo">
-              <img src="person1.png" alt="ชื่อสมาชิกคนที่ 1">
-            </div>
-          </div>
-          <a class="view-link" href="person1.html">ดูข้อมูล</a>
-        </div>
-                <div class="col">
-          <p class="name">อภิรักษ์ มุกดา</p>
-          <p class="role">หัวหน้ากลุ่ม</p>
-          <div class="photo-frame">
-            <div class="photo">
-              <img src="person1.png" alt="ชื่อสมาชิกคนที่ 1">
-            </div>
-          </div>
-          <a class="view-link" href="person1.html">ดูข้อมูล</a>
-        </div>
-                <div class="col">
-          <p class="name">อภิรักษ์ มุกดา</p>
-          <p class="role">หัวหน้ากลุ่ม</p>
-          <div class="photo-frame">
-            <div class="photo">
-              <img src="person1.png" alt="ชื่อสมาชิกคนที่ 1">
-            </div>
-          </div>
-          <a class="view-link" href="person1.html">ดูข้อมูล</a>
-        </div>
-                
-                <!-- แถวที่ 2 -->
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-                <div class="box"></div>
-            </div>
-        </div>
 
-        <!-- ส่วนล่าง -->
-        <div class="section">
-            <div class="banner">
-                NAME
-            </div>
-            
-            <div class="single-box-wrapper">
-                <div class="single-box"></div>
-            </div>
-        </div>
+        <!-- ส่วนล่าง -->
+        <div class="section">
+            <div class="banner">
+                NAME
+            </div>
+            
+            <div class="single-box-wrapper">
+                <div class="single-box"></div>
+            </div>
+        </div>
 
-    </div>
+    </div>
 
 </body>
 </html>
