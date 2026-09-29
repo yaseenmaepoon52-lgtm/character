@@ -75,7 +75,7 @@
     padding: 24px 32px 0px 32px;
     text-align: left;
     border-bottom: 1px solid var(--gold);
-    margin-bottom: -1px; /* Overlap with columns border if needed, or keep to separate */
+    margin-bottom: -1px;
   }
 
   .subheading {
@@ -107,6 +107,11 @@
   .columns{
     display: grid;
     grid-template-columns: repeat(5, 1fr); 
+    border-bottom: 1px solid var(--gold); /* Add border to separate rows */
+  }
+
+  .columns:last-child {
+    border-bottom: none; /* Remove bottom border for the last row to prevent double border with frame */
   }
 
   .col{
@@ -117,11 +122,8 @@
     transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .col:nth-child(1){ animation-delay: 0.05s; }
-  .col:nth-child(2){ animation-delay: 0.15s; }
-  .col:nth-child(3){ animation-delay: 0.25s; }
-  .col:nth-child(4){ animation-delay: 0.35s; }
-  .col:nth-child(5){ animation-delay: 0.45s; }
+  /* Reset delay for simpler code, or add logic for more items if needed */
+  .col{ animation-delay: 0.1s; } 
 
   .col:hover{
     background: rgba(201,162,75,0.05);
@@ -282,8 +284,8 @@
         <h2 class="subheading">หัวข้อย่อย</h2>
       </div>
 
+      <!-- แถวที่ 1 -->
       <div class="columns">
-
         <div class="col">
           <p class="name">อภิรักษ์ มุกดา</p>
           <p class="role">หัวหน้ากลุ่ม</p>
@@ -294,7 +296,6 @@
           </div>
           <a class="view-link" href="person1.html">ดูข้อมูล</a>
         </div>
-
         <div class="col">
           <p class="name">ปิยะชาติ สุทิน</p>
           <p class="role">สมาชิก</p>
@@ -305,7 +306,6 @@
           </div>
           <a class="view-link" href="person2.html">ดูข้อมูล</a>
         </div>
-
         <div class="col">
           <p class="name">เมธัส แม่ปุน</p>
           <p class="role">สมาชิก</p>
@@ -316,7 +316,6 @@
           </div>
           <a class="view-link" href="person3.html">ดูข้อมูล</a>
         </div>
-
         <div class="col">
           <p class="name">เมธัส แม่ปุน</p>
           <p class="role">สมาชิก</p>
@@ -327,7 +326,6 @@
           </div>
           <a class="view-link" href="person3.html">ดูข้อมูล</a>
         </div>
-
         <div class="col">
           <p class="name">เมธัส แม่ปุน</p>
           <p class="role">สมาชิก</p>
@@ -338,14 +336,64 @@
           </div>
           <a class="view-link" href="person3.html">ดูข้อมูล</a>
         </div>
+      </div>
 
+      <!-- แถวที่ 2 เพิ่มตามที่ขอ -->
+      <div class="columns">
+        <div class="col">
+          <p class="name">ชื่อ สกุล</p>
+          <p class="role">ตำแหน่ง</p>
+          <div class="photo-frame">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 6">
+            </div>
+          </div>
+          <a class="view-link" href="#">ดูข้อมูล</a>
+        </div>
+        <div class="col">
+          <p class="name">ชื่อ สกุล</p>
+          <p class="role">ตำแหน่ง</p>
+          <div class="photo-frame">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 7">
+            </div>
+          </div>
+          <a class="view-link" href="#">ดูข้อมูล</a>
+        </div>
+        <div class="col">
+          <p class="name">ชื่อ สกุล</p>
+          <p class="role">ตำแหน่ง</p>
+          <div class="photo-frame">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 8">
+            </div>
+          </div>
+          <a class="view-link" href="#">ดูข้อมูล</a>
+        </div>
+        <div class="col">
+          <p class="name">ชื่อ สกุล</p>
+          <p class="role">ตำแหน่ง</p>
+          <div class="photo-frame">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 9">
+            </div>
+          </div>
+          <a class="view-link" href="#">ดูข้อมูล</a>
+        </div>
+        <div class="col">
+          <p class="name">ชื่อ สกุล</p>
+          <p class="role">ตำแหน่ง</p>
+          <div class="photo-frame">
+            <div class="photo">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="ชื่อสมาชิกคนที่ 10">
+            </div>
+          </div>
+          <a class="view-link" href="#">ดูข้อมูล</a>
+        </div>
       </div>
 
     </div>
 
-    <footer>
-      หน้าเว็บนี้พัฒนาบนกิ่ง develop
-    </footer>
   </div>
 </body>
 </html>
