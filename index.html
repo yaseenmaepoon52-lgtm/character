@@ -265,14 +265,21 @@
       border-right: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
-    .col:nth-child(even){ border-right: none; }
+    /* คืนค่าเส้นขอบให้คอลัมน์ที่ 5 สำหรับหน้าจอ 2 คอลัมน์ */
+    .col:nth-child(5n){ 
+      border-right: 1px solid var(--line); 
+    }
+    /* ลบเส้นขอบเฉพาะคอลัมน์ที่ 2, 4, 6... (ขวาสุดของหน้าจอ) */
+    .col:nth-child(even){ 
+      border-right: none; 
+    }
   }
 
   @media (max-width: 600px){
     .columns{
       grid-template-columns: 1fr;
     }
-    .col{
+    .col, .col:nth-child(5n){ /* บังคับลบเส้นขอบขวาทั้งหมดในหน้าจอ 1 คอลัมน์ */
       border-right: none;
       border-bottom: 1px solid var(--line);
     }
