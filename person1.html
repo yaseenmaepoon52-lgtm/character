@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Zeus — OC Documents</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --onyx:#141110;
+  --onyx-deep:#0D0B0A;
+  --gold:#C9A24B;
+  --gold-soft:#E4C976;
+  --wine:#4A1E1E;
+  --parchment:#EFE6D3;
+  --parchment-dim:rgba(239,230,211,0.62);
+  --line:rgba(201,162,75,0.45);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+
+  background:
+    radial-gradient(
+      1200px 600px at 50% -10%,
+      rgba(201,162,75,0.10),
+      transparent 60%
+    ),
+    var(--onyx-deep);
+
+  color:var(--parchment);
+  font-family:'Noto Sans Thai',sans-serif;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 24px 80px;
+}
+
+/* =========================
+   FRAME
+========================= */
+
+.frame{
+  border:1px solid var(--gold);
+  position:relative;
+}
+
+.frame::before{
+  content:"";
+  position:absolute;
+  inset:7px;
+
+  border:1px solid rgba(201,162,75,0.35);
+
+  pointer-events:none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.title-band{
+  text-align:center;
+
+  padding:42px 24px 32px;
+
+  border-bottom:1px solid var(--gold);
+}
+
+.kicker{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+
+  font-size:18px;
+
+  color:var(--gold-soft);
+
+  margin:0 0 10px;
+}
+
+h1{
+  font-family:'Noto Serif Thai',serif;
+
+  font-size:clamp(30px,5vw,46px);
+
+  margin:0;
+
+  color:var(--parchment);
+}
+
+.subtitle{
+  margin:10px 0 0;
+
+  color:var(--gold-soft);
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-size:20px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+  display:grid;
+
+  grid-template-columns:380px 1fr;
+
+  gap:45px;
+
+  padding:45px;
+}
+
+/* =========================
+   CHARACTER IMAGE
+========================= */
+
+.character-image{
+  border:1px solid var(--gold);
+
+  padding:7px;
+
+  background:var(--onyx);
+
+  height:max-content;
+}
+
+.character-image img{
+  width:100%;
+
+  aspect-ratio:4 / 5;
+
+  object-fit:cover;
+
+  display:block;
+
+  background:
+    linear-gradient(
+      160deg,
+      var(--wine),
+      var(--onyx)
+    );
+}
+
+/* =========================
+   BASIC INFO
+========================= */
+
+.basic-info{
+  padding-top:5px;
+}
+
+.section-title{
+  font-family:'Noto Serif Thai',serif;
+
+  font-size:23px;
+
+  color:var(--gold-soft);
+
+  margin:0 0 20px;
+
+  padding-bottom:12px;
+
+  border-bottom:1px solid var(--gold);
+}
+
+.info-row{
+  display:grid;
+
+  grid-template-columns:140px 1fr;
+
+  padding:12px 0;
+
+  border-bottom:1px solid rgba(201,162,75,0.20);
+}
+
+.info-label{
+  color:var(--gold-soft);
+
+  font-weight:500;
+}
+
+.info-value{
+  color:var(--parchment-dim);
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description{
+  border-top:1px solid var(--gold);
+
+  padding:38px 45px;
+}
+
+.description p{
+  color:var(--parchment-dim);
+
+  line-height:1.9;
+
+  font-size:16px;
+
+  margin:0;
+}
+
+/* =========================
+   ABILITIES
+========================= */
+
+.abilities{
+  padding:0 45px 40px;
+}
+
+.ability-grid{
+  display:grid;
+
+  grid-template-columns:repeat(3,1fr);
+
+  gap:15px;
+}
+
+.ability{
+  border:1px solid var(--line);
+
+  padding:20px;
+
+  text-align:center;
+
+  background:rgba(201,162,75,0.025);
+
+  transition:0.3s;
+}
+
+.ability:hover{
+  background:rgba(201,162,75,0.07);
+
+  transform:translateY(-3px);
+}
+
+.ability-name{
+  color:var(--gold-soft);
+
+  font-family:'Noto Serif Thai',serif;
+
+  font-size:18px;
+
+  margin-bottom:8px;
+}
+
+.ability-text{
+  color:var(--parchment-dim);
+
+  font-size:14px;
+
+  line-height:1.6;
+}
+
+/* =========================
+   RELATIONSHIPS
+========================= */
+
+.relationships{
+  padding:0 45px 45px;
+}
+
+.relationship{
+  display:flex;
+
+  justify-content:space-between;
+
+  padding:14px 0;
+
+  border-bottom:1px solid rgba(201,162,75,0.20);
+}
+
+.relationship-name{
+  color:var(--parchment);
+}
+
+.relationship-type{
+  color:var(--gold-soft);
+
+  font-family:'Cormorant Garamond',serif;
+
+  font-style:italic;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.bottom{
+  border-top:1px solid var(--gold);
+
+  padding:25px;
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+}
+
+.back{
+  color:var(--gold-soft);
+
+  text-decoration:none;
+
+  font-size:15px;
+
+  transition:0.25s;
+}
+
+.back:hover{
+  color:var(--parchment);
+}
+
+.id{
+  font-family:'Cormorant Garamond',serif;
+
+  font-style:italic;
+
+  color:rgba(239,230,211,0.4);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  .profile{
+    grid-template-columns:1fr;
+
+    padding:30px;
+  }
+
+  .character-image{
+    max-width:350px;
+
+    margin:auto;
+  }
+
+  .ability-grid{
+    grid-template-columns:1fr;
+  }
+
+  .description,
+  .abilities,
+  .relationships{
+    padding-left:30px;
+    padding-right:30px;
+  }
+
+}
+
+@media(max-width:500px){
+
+  .page{
+    padding:25px 12px 50px;
+  }
+
+  .profile{
+    padding:25px 20px;
+  }
+
+  .info-row{
+    grid-template-columns:1fr;
+
+    gap:4px;
+  }
+
+  .bottom{
+    padding:20px;
+
+    flex-direction:column;
+
+    gap:15px;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+<div class="frame">
+
+  <!-- HEADER -->
+
+  <div class="title-band">
+
+    <p class="kicker">
+      The Ordinary Life of Gods
+    </p>
+
+    <h1>
+      ซุส (Zeus)
+    </h1>
+
+    <p class="subtitle">
+      King of the Gods · God of the Sky
+    </p>
+
+  </div>
+
+
+  <!-- PROFILE -->
+
+  <div class="profile">
+
+    <!-- IMAGE -->
+
+    <div class="character-image">
+
+      <img
+        src="zeus.png"
+        alt="ซุส (Zeus)"
+      >
+
+    </div>
+
+
+    <!-- BASIC INFORMATION -->
+
+    <div class="basic-info">
+
+      <h2 class="section-title">
+        ข้อมูลพื้นฐาน
+      </h2>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          ชื่อ
+        </div>
+
+        <div class="info-value">
+          ซุส (Zeus)
+        </div>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          เพศ
+        </div>
+
+        <div class="info-value">
+          ชาย
+        </div>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          เผ่าพันธุ์
+        </div>
+
+        <div class="info-value">
+          เทพเจ้า (God)
+        </div>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          ตำแหน่ง
+        </div>
+
+        <div class="info-value">
+          ราชาแห่งเหล่าเทพ
+        </div>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          ขอบเขตอำนาจ
+        </div>
+
+        <div class="info-value">
+          ท้องฟ้า สายฟ้า และอำนาจ
+        </div>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          สัญลักษณ์
+        </div>
+
+        <div class="info-value">
+          สายฟ้า · นกอินทรี · ต้นโอ๊ก
+        </div>
+
+      </div>
+
+
+      <div class="info-row">
+
+        <div class="info-label">
+          อาวุธ
+        </div>
+
+        <div class="info-value">
+          สายฟ้า (Thunderbolt)
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- DESCRIPTION -->
+
+  <div class="description">
+
+    <h2 class="section-title">
+      ประวัติ
+    </h2>
+
+    <p>
+      ซุสเป็นหนึ่งในเทพเจ้าที่มีอำนาจสูงสุดของโอลิมปัส
+      และเป็นผู้ปกครองเหล่าเทพทั้งหลาย
+      เขามีอำนาจเหนือท้องฟ้า สายฟ้า และพายุ
+      โดยมักถูกมองว่าเป็นเทพที่มีอำนาจและมีบทบาทสำคัญ
+      ในการรักษาความสมดุลของโลกแห่งเทพเจ้า
+    </p>
+
+  </div>
+
+
+  <!-- ABILITIES -->
+
+  <div class="abilities">
+
+    <h2 class="section-title">
+      ความสามารถ
+    </h2>
+
+    <div class="ability-grid">
+
+
+      <div class="ability">
+
+        <div class="ability-name">
+          Thunderbolt
+        </div>
+
+        <div class="ability-text">
+          สามารถสร้างและควบคุมสายฟ้า
+          เพื่อโจมตีศัตรูหรือทำลายสิ่งต่าง ๆ
+        </div>
+
+      </div>
+
+
+      <div class="ability">
+
+        <div class="ability-name">
+          Storm
+        </div>
+
+        <div class="ability-text">
+          สามารถควบคุมพายุ
+          ลม และสภาพอากาศ
+        </div>
+
+      </div>
+
+
+      <div class="ability">
+
+        <div class="ability-name">
+          Divine Authority
+        </div>
+
+        <div class="ability-text">
+          มีอำนาจเหนือเหล่าเทพ
+          และสามารถสั่งการเทพองค์อื่น
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+  <!-- RELATIONSHIPS -->
+
+  <div class="relationships">
+
+    <h2 class="section-title">
+      ความสัมพันธ์
+    </h2>
+
+
+    <div class="relationship">
+
+      <span class="relationship-name">
+        เฮร่า (Hera)
+      </span>
+
+      <span class="relationship-type">
+        Wife
+      </span>
+
+    </div>
+
+
+    <div class="relationship">
+
+      <span class="relationship-name">
+        โพไซดอน (Poseidon)
+      </span>
+
+      <span class="relationship-type">
+        Brother
+      </span>
+
+    </div>
+
+
+    <div class="relationship">
+
+      <span class="relationship-name">
+        ฮาเดส (Hades)
+      </span>
+
+      <span class="relationship-type">
+        Brother
+      </span>
+
+    </div>
+
+
+    <div class="relationship">
+
+      <span class="relationship-name">
+        อาธีน่า (Athena)
+      </span>
+
+      <span class="relationship-type">
+        Daughter
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+
+  <div class="bottom">
+
+    <a
+      href="index.html"
+      class="back"
+    >
+      ← กลับไปหน้า List OC
+    </a>
+
+    <span class="id">
+      OC DOCUMENT · ZEUS
+    </span>
+
+  </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
