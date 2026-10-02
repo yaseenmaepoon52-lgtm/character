@@ -1,714 +1,1225 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>OC Documents</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --onyx: #141110;
+      --onyx-deep: #0D0B0A;
+      --gold: #C9A24B;
+      --gold-soft: #E4C976;
+      --wine: #4A1E1E;
+      --parchment: #EFE6D3;
+      --parchment-dim: rgba(239, 230, 211, 0.62);
+      --line: rgba(201, 162, 75, 0.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @keyframes riseIn {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
 
-<title>Zeus — OC Documents</title>
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    @keyframes fadeInStagger {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500&display=swap" rel="stylesheet">
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-<style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
 
-:root{
-  --onyx:#141110;
-  --onyx-deep:#0D0B0A;
-  --gold:#C9A24B;
-  --gold-soft:#E4C976;
-  --wine:#4A1E1E;
-  --parchment:#EFE6D3;
-  --parchment-dim:rgba(239,230,211,0.62);
-  --line:rgba(201,162,75,0.45);
-}
+      background:
+        radial-gradient(
+          1200px 600px at 50% -10%,
+          rgba(201, 162, 75, 0.10),
+          transparent 60%
+        ),
+        var(--onyx-deep);
 
-*{
-  box-sizing:border-box;
-}
+      color: var(--parchment);
+      font-family: 'Noto Sans Thai', sans-serif;
+    }
 
-html,body{
-  margin:0;
-  padding:0;
+    .page {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 64px 24px 96px;
 
-  background:
-    radial-gradient(
-      1200px 600px at 50% -10%,
-      rgba(201,162,75,0.10),
-      transparent 60%
-    ),
-    var(--onyx-deep);
+      animation:
+        riseIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
 
-  color:var(--parchment);
-  font-family:'Noto Sans Thai',sans-serif;
-}
+    .frame {
+      border: 1px solid var(--gold);
+      position: relative;
+    }
 
-/* =========================
-   PAGE
-========================= */
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
 
-.page{
-  max-width:1100px;
-  margin:auto;
-  padding:60px 24px 80px;
-}
+      border: 1px solid rgba(201, 162, 75, 0.35);
 
-/* =========================
-   FRAME
-========================= */
+      pointer-events: none;
+    }
 
-.frame{
-  border:1px solid var(--gold);
-  position:relative;
-}
+    /* =========================
+       TITLE
+    ========================= */
 
-.frame::before{
-  content:"";
-  position:absolute;
-  inset:7px;
+    .title-band {
+      text-align: center;
 
-  border:1px solid rgba(201,162,75,0.35);
+      padding: 44px 24px 34px;
 
-  pointer-events:none;
-}
+      border-bottom: 1px solid var(--gold);
+    }
 
-/* =========================
-   HEADER
-========================= */
+    .kicker {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
 
-.title-band{
-  text-align:center;
+      font-size: 17px;
 
-  padding:42px 24px 32px;
+      color: var(--gold-soft);
 
-  border-bottom:1px solid var(--gold);
-}
+      margin: 0 0 12px;
+    }
 
-.kicker{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;
+    h1 {
+      font-family: 'Noto Serif Thai', serif;
+      font-weight: 700;
 
-  font-size:18px;
+      font-size: clamp(28px, 4.4vw, 42px);
 
-  color:var(--gold-soft);
+      line-height: 1.3;
 
-  margin:0 0 10px;
-}
+      margin: 0;
 
-h1{
-  font-family:'Noto Serif Thai',serif;
+      color: var(--parchment);
+    }
 
-  font-size:clamp(30px,5vw,46px);
+    /* =========================
+       SUB HEADING
+    ========================= */
 
-  margin:0;
+    .subheading-container {
+      padding: 24px 32px 0;
 
-  color:var(--parchment);
-}
+      text-align: left;
 
-.subtitle{
-  margin:10px 0 0;
+      border-bottom: 1px solid var(--gold);
 
-  color:var(--gold-soft);
+      margin-bottom: -1px;
+    }
 
-  font-family:'Cormorant Garamond',serif;
+    .subheading {
+      font-family: 'Noto Serif Thai', serif;
+      font-weight: 600;
 
-  font-size:20px;
-}
+      font-size: 24px;
 
-/* =========================
-   PROFILE
-========================= */
+      color: var(--gold-soft);
 
-.profile{
-  display:grid;
+      margin: 0;
 
-  grid-template-columns:380px 1fr;
+      padding-bottom: 16px;
+    }
 
-  gap:45px;
+    /* =========================
+       COLUMNS
+    ========================= */
 
-  padding:45px;
-}
+    .columns {
+      display: grid;
 
-/* =========================
-   CHARACTER IMAGE
-========================= */
+      grid-template-columns: repeat(5, 1fr);
 
-.character-image{
-  border:1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+    }
 
-  padding:7px;
+    .columns:last-child {
+      border-bottom: none;
+    }
 
-  background:var(--onyx);
+    .col {
+      padding: 40px 16px 44px;
 
-  height:max-content;
-}
+      text-align: center;
 
-.character-image img{
-  width:100%;
+      border-right: 1px solid var(--line);
 
-  aspect-ratio:4 / 5;
+      animation:
+        fadeInStagger 0.6s
+        cubic-bezier(0.16, 1, 0.3, 1) both;
 
-  object-fit:cover;
+      animation-delay: 0.1s;
 
-  display:block;
+      transition:
+        background 0.35s
+        cubic-bezier(0.4, 0, 0.2, 1);
 
-  background:
-    linear-gradient(
-      160deg,
-      var(--wine),
-      var(--onyx)
-    );
-}
+      display: flex;
 
-/* =========================
-   BASIC INFO
-========================= */
+      flex-direction: column;
 
-.basic-info{
-  padding-top:5px;
-}
+      align-items: center;
+    }
 
-.section-title{
-  font-family:'Noto Serif Thai',serif;
+    .col:hover {
+      background: rgba(201, 162, 75, 0.05);
+    }
 
-  font-size:23px;
+    .col:nth-child(5n) {
+      border-right: none;
+    }
 
-  color:var(--gold-soft);
+    /* =========================
+       NAME
+    ========================= */
 
-  margin:0 0 20px;
+    .name {
+      font-family: 'Noto Serif Thai', serif;
+      font-weight: 600;
 
-  padding-bottom:12px;
+      font-size: 20px;
 
-  border-bottom:1px solid var(--gold);
-}
+      color: var(--parchment);
 
-.info-row{
-  display:grid;
+      margin: 0 0 8px;
 
-  grid-template-columns:140px 1fr;
+      padding-bottom: 8px;
 
-  padding:12px 0;
+      border-bottom: 1px solid var(--gold);
 
-  border-bottom:1px solid rgba(201,162,75,0.20);
-}
+      display: inline-flex;
 
-.info-label{
-  color:var(--gold-soft);
+      min-height: 42px;
 
-  font-weight:500;
-}
+      align-items: flex-start;
 
-.info-value{
-  color:var(--parchment-dim);
-}
+      justify-content: center;
+    }
 
-/* =========================
-   DESCRIPTION
-========================= */
+    /* =========================
+       ROLE
+    ========================= */
 
-.description{
-  border-top:1px solid var(--gold);
+    .role {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
 
-  padding:38px 45px;
-}
+      font-size: 16px;
 
-.description p{
-  color:var(--parchment-dim);
+      color: var(--gold-soft);
 
-  line-height:1.9;
+      margin: 0 0 24px;
 
-  font-size:16px;
+      height: 48px;
 
-  margin:0;
-}
+      width: 100%;
 
-/* =========================
-   ABILITIES
-========================= */
+      display: flex;
 
-.abilities{
-  padding:0 45px 40px;
-}
+      align-items: flex-start;
 
-.ability-grid{
-  display:grid;
+      justify-content: center;
 
-  grid-template-columns:repeat(3,1fr);
+      text-align: center;
+    }
 
-  gap:15px;
-}
+    /* =========================
+       PHOTO
+    ========================= */
 
-.ability{
-  border:1px solid var(--line);
+    .photo-frame {
+      width: 100%;
 
-  padding:20px;
+      aspect-ratio: 4 / 5;
 
-  text-align:center;
+      border: 1px solid var(--gold);
 
-  background:rgba(201,162,75,0.025);
+      padding: 6px;
 
-  transition:0.3s;
-}
+      margin: 0 0 26px;
 
-.ability:hover{
-  background:rgba(201,162,75,0.07);
+      overflow: hidden;
 
-  transform:translateY(-3px);
-}
+      transition:
+        box-shadow 0.35s
+        cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-.ability-name{
-  color:var(--gold-soft);
+    .photo-frame:hover {
+      box-shadow:
+        0 0 0 6px
+        rgba(201, 162, 75, 0.10);
+    }
 
-  font-family:'Noto Serif Thai',serif;
+    .photo {
+      width: 100%;
+      height: 100%;
 
-  font-size:18px;
+      overflow: hidden;
 
-  margin-bottom:8px;
-}
+      background:
+        linear-gradient(
+          160deg,
+          var(--wine),
+          var(--onyx)
+        );
 
-.ability-text{
-  color:var(--parchment-dim);
+      display: flex;
 
-  font-size:14px;
+      align-items: center;
 
-  line-height:1.6;
-}
+      justify-content: center;
+    }
 
-/* =========================
-   RELATIONSHIPS
-========================= */
+    .photo img {
+      width: 100%;
+      height: 100%;
 
-.relationships{
-  padding:0 45px 45px;
-}
+      object-fit: cover;
 
-.relationship{
-  display:flex;
+      display: block;
 
-  justify-content:space-between;
+      transition:
+        transform 0.6s
+        cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  padding:14px 0;
+    .photo-frame:hover img {
+      transform: scale(1.045);
+    }
 
-  border-bottom:1px solid rgba(201,162,75,0.20);
-}
+    .photo .placeholder {
+      font-family: 'Noto Serif Thai', serif;
 
-.relationship-name{
-  color:var(--parchment);
-}
+      font-size: 20px;
 
-.relationship-type{
-  color:var(--gold-soft);
+      color: var(--parchment-dim);
+    }
 
-  font-family:'Cormorant Garamond',serif;
+    /* =========================
+       VIEW LINK
+    ========================= */
 
-  font-style:italic;
-}
+    .view-link {
+      display: inline-block;
 
-/* =========================
-   FOOTER
-========================= */
+      color: var(--gold-soft);
 
-.bottom{
-  border-top:1px solid var(--gold);
+      text-decoration: none;
 
-  padding:25px;
+      font-size: 15px;
 
-  display:flex;
+      font-weight: 500;
 
-  justify-content:space-between;
+      position: relative;
 
-  align-items:center;
-}
+      padding-bottom: 4px;
 
-.back{
-  color:var(--gold-soft);
+      transition:
+        color 0.25s
+        cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  text-decoration:none;
+    .view-link::after {
+      content: "";
 
-  font-size:15px;
+      position: absolute;
 
-  transition:0.25s;
-}
+      left: 0;
+      bottom: 0;
 
-.back:hover{
-  color:var(--parchment);
-}
+      width: 100%;
+      height: 1px;
 
-.id{
-  font-family:'Cormorant Garamond',serif;
+      background: var(--gold);
 
-  font-style:italic;
+      transform: scaleX(1);
 
-  color:rgba(239,230,211,0.4);
-}
+      transform-origin: left;
 
-/* =========================
-   MOBILE
-========================= */
+      transition:
+        transform 0.3s
+        cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-@media(max-width:800px){
+    .view-link:hover {
+      color: var(--parchment);
+    }
 
-  .profile{
-    grid-template-columns:1fr;
+    .view-link:hover::after {
+      transform: scaleX(1.06);
 
-    padding:30px;
-  }
+      background: var(--parchment);
+    }
 
-  .character-image{
-    max-width:350px;
+    .view-link:focus-visible {
+      outline: 1.5px solid var(--gold-soft);
 
-    margin:auto;
-  }
+      outline-offset: 4px;
+    }
 
-  .ability-grid{
-    grid-template-columns:1fr;
-  }
+    /* =========================
+       FOOTER
+    ========================= */
 
-  .description,
-  .abilities,
-  .relationships{
-    padding-left:30px;
-    padding-right:30px;
-  }
+    footer {
+      padding-top: 40px;
 
-}
+      text-align: center;
 
-@media(max-width:500px){
+      font-family: 'Cormorant Garamond', serif;
 
-  .page{
-    padding:25px 12px 50px;
-  }
+      font-style: italic;
 
-  .profile{
-    padding:25px 20px;
-  }
+      font-size: 15px;
 
-  .info-row{
-    grid-template-columns:1fr;
+      color: rgba(239, 230, 211, 0.4);
+    }
 
-    gap:4px;
-  }
+    /* =========================
+       TABLET
+    ========================= */
 
-  .bottom{
-    padding:20px;
+    @media (max-width: 900px) {
 
-    flex-direction:column;
+      .columns {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
-    gap:15px;
-  }
+      .col {
+        border-right: 1px solid var(--line);
 
-}
+        border-bottom: 1px solid var(--line);
+      }
 
-</style>
+      .col:nth-child(5n) {
+        border-right: 1px solid var(--line);
+      }
+
+      .col:nth-child(even) {
+        border-right: none;
+      }
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .columns {
+        grid-template-columns: 1fr;
+      }
+
+      .col,
+      .col:nth-child(5n) {
+        border-right: none;
+
+        border-bottom: 1px solid var(--line);
+      }
+
+      .col:last-child {
+        border-bottom: none;
+      }
+
+      .photo-frame {
+        max-width: 240px;
+
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+  </style>
 </head>
-
 
 <body>
 
-<div class="page">
+  <div class="page">
 
-<div class="frame">
+    <div class="frame">
 
-  <!-- HEADER -->
+      <!-- =========================
+           TITLE
+      ========================== -->
 
-  <div class="title-band">
+      <div class="title-band">
 
-    <p class="kicker">
-      The Ordinary Life of Gods
-    </p>
+        <p class="kicker">
+          The Ordinary Life of Gods
+        </p>
 
-    <h1>
-      ซุส (Zeus)
-    </h1>
+        <h1>
+          List OC
+        </h1>
 
-    <p class="subtitle">
-      King of the Gods · God of the Sky
-    </p>
+      </div>
+
+
+      <!-- =========================
+           OLYMPIANS
+      ========================== -->
+
+      <div class="subheading-container">
+
+        <h2 class="subheading">
+          โอลิมเปียน (Olympians)
+        </h2>
+
+      </div>
+
+
+      <!-- แถวที่ 1 -->
+
+      <div class="columns">
+
+        <!-- Zeus -->
+
+        <div class="col">
+
+          <p class="name">
+            ซุส (Zeus)
+          </p>
+
+          <p class="role">
+            เทพแห่งท้องฟ้าและสายฟ้า
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="zeus.png"
+                alt="ซุส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person1.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Hera -->
+
+        <div class="col">
+
+          <p class="name">
+            เฮร่า (Hera)
+          </p>
+
+          <p class="role">
+            เทพีแห่งสตรีและการแต่งงาน
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="hera.png"
+                alt="เฮร่า"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person2.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Poseidon -->
+
+        <div class="col">
+
+          <p class="name">
+            โพไซดอน (Poseidon)
+          </p>
+
+          <p class="role">
+            เทพแห่งท้องทะเล
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="poseidon.png"
+                alt="โพไซดอน"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person3.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Demeter -->
+
+        <div class="col">
+
+          <p class="name">
+            ดีมีเทอร์ (Demeter)
+          </p>
+
+          <p class="role">
+            เทพีแห่งการเกษตร
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="https://i.redd.it/o77vaplyowtg1.jpeg"
+                alt="ดีมีเทอร์"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person4.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Apollo -->
+
+        <div class="col">
+
+          <p class="name">
+            อะพอลโล (Apollo)
+          </p>
+
+          <p class="role">
+            เทพแห่งแสงสว่างและดนตรี
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="apollo.png"
+                alt="อะพอลโล"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person5.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           ROW 2
+      ========================== -->
+
+      <div class="columns">
+
+        <!-- Artemis -->
+
+        <div class="col">
+
+          <p class="name">
+            อาร์เธมิส (Artemis)
+          </p>
+
+          <p class="role">
+            เทพีแห่งแสงจันทร์และล่าสัตว์
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="artemis.png"
+                alt="อาร์เธมิส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person6.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Ares -->
+
+        <div class="col">
+
+          <p class="name">
+            เอรีส (Ares)
+          </p>
+
+          <p class="role">
+            เทพแห่งสงคราม
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="ares.png"
+                alt="เอรีส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person7.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Athena -->
+
+        <div class="col">
+
+          <p class="name">
+            อาธีน่า (Athena)
+          </p>
+
+          <p class="role">
+            เทพีแห่งปัญญาและสงคราม
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="athena.png"
+                alt="อาธีน่า"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person8.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Hephaestus -->
+
+        <div class="col">
+
+          <p class="name">
+            เฮเฟตัส (Hephaestus)
+          </p>
+
+          <p class="role">
+            เทพแห่งช่างตีเหล็ก
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="https://i.redd.it/o77vaplyowtg1.jpeg"
+                alt="เฮเฟตัส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person9.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Aphrodite -->
+
+        <div class="col">
+
+          <p class="name">
+            อะโฟรไดท์ (Aphrodite)
+          </p>
+
+          <p class="role">
+            เทพีแห่งความงาม
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="aphrodite.png"
+                alt="อะโฟรไดท์"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person10.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           ROW 3
+      ========================== -->
+
+      <div class="columns">
+
+        <!-- Hermes -->
+
+        <div class="col">
+
+          <p class="name">
+            เฮอร์มิส (Hermes)
+          </p>
+
+          <p class="role">
+            เทพแห่งการส่งสารและเดินทาง
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="hermes.png"
+                alt="เฮอร์มิส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person11.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Hestia -->
+
+        <div class="col">
+
+          <p class="name">
+            เฮสเทีย (Hestia)
+          </p>
+
+          <p class="role">
+            เทพีแห่งเตาไฟ
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="https://i.redd.it/o77vaplyowtg1.jpeg"
+                alt="เฮสเทีย"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person12.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Dionysus -->
+
+        <div class="col">
+
+          <p class="name">
+            ไดโอนิซัส (Dionysus)
+          </p>
+
+          <p class="role">
+            เทพแห่งไวน์และองุ่น
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="dionysus.png"
+                alt="ไดโอนิซัส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person13.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Hades -->
+
+        <div class="col">
+
+          <p class="name">
+            ฮาเดส (Hades)
+          </p>
+
+          <p class="role">
+            ราชาแห่งยมโลก
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="hades.png"
+                alt="ฮาเดส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person14.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- =========================
+           GODS & GODDESSES
+      ========================== -->
+
+      <div class="subheading-container">
+
+        <h2 class="subheading">
+          เทพ & เทพี (Gods & Goddesses)
+        </h2>
+
+      </div>
+
+
+      <div class="columns">
+
+        <!-- Persephone -->
+
+        <div class="col">
+
+          <p
+            class="name"
+            style="font-size: 15px;"
+          >
+            เพอร์เซโฟนี (Persephone)
+          </p>
+
+          <p class="role">
+            เทพีแห่งฤดูกาล
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="persephone.png"
+                alt="เพอร์เซโฟนี"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person15.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Melinoë -->
+
+        <div class="col">
+
+          <p class="name">
+            เมลิโนเอ (Melinoë)
+          </p>
+
+          <p class="role">
+            เทพีแห่งภูติผีและฝันร้าย
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="melinoe.png"
+                alt="เมลิโนเอ"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person16.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Aeolus -->
+
+        <div class="col">
+
+          <p class="name">
+            เอโอลัส (Aeolus)
+          </p>
+
+          <p class="role">
+            เทพแห่งสายลม
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="https://i.redd.it/o77vaplyowtg1.jpeg"
+                alt="เอโอลัส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person17.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Iris -->
+
+        <div class="col">
+
+          <p class="name">
+            ไอริส (Iris)
+          </p>
+
+          <p class="role">
+            เทพีแห่งสายรุ้งและผู้ส่งสารของเทพ
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="https://i.redd.it/o77vaplyowtg1.jpeg"
+                alt="ไอริส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person18.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+
+        <!-- Eris -->
+
+        <div class="col">
+
+          <p class="name">
+            เอริส (Eris)
+          </p>
+
+          <p class="role">
+            เทพีแห่งความวุ่นวายและความขัดแย้ง
+          </p>
+
+          <div class="photo-frame">
+
+            <div class="photo">
+
+              <img
+                src="eris.png"
+                alt="เอริส"
+              >
+
+            </div>
+
+          </div>
+
+          <a
+            class="view-link"
+            href="person19.html"
+          >
+            ดูข้อมูล
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
 
   </div>
-
-
-  <!-- PROFILE -->
-
-  <div class="profile">
-
-    <!-- IMAGE -->
-
-    <div class="character-image">
-
-      <img
-        src="zeus.png"
-        alt="ซุส (Zeus)"
-      >
-
-    </div>
-
-
-    <!-- BASIC INFORMATION -->
-
-    <div class="basic-info">
-
-      <h2 class="section-title">
-        ข้อมูลพื้นฐาน
-      </h2>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          ชื่อ
-        </div>
-
-        <div class="info-value">
-          ซุส (Zeus)
-        </div>
-
-      </div>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          เพศ
-        </div>
-
-        <div class="info-value">
-          ชาย
-        </div>
-
-      </div>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          เผ่าพันธุ์
-        </div>
-
-        <div class="info-value">
-          เทพเจ้า (God)
-        </div>
-
-      </div>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          ตำแหน่ง
-        </div>
-
-        <div class="info-value">
-          ราชาแห่งเหล่าเทพ
-        </div>
-
-      </div>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          ขอบเขตอำนาจ
-        </div>
-
-        <div class="info-value">
-          ท้องฟ้า สายฟ้า และอำนาจ
-        </div>
-
-      </div>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          สัญลักษณ์
-        </div>
-
-        <div class="info-value">
-          สายฟ้า · นกอินทรี · ต้นโอ๊ก
-        </div>
-
-      </div>
-
-
-      <div class="info-row">
-
-        <div class="info-label">
-          อาวุธ
-        </div>
-
-        <div class="info-value">
-          สายฟ้า (Thunderbolt)
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- DESCRIPTION -->
-
-  <div class="description">
-
-    <h2 class="section-title">
-      ประวัติ
-    </h2>
-
-    <p>
-      ซุสเป็นหนึ่งในเทพเจ้าที่มีอำนาจสูงสุดของโอลิมปัส
-      และเป็นผู้ปกครองเหล่าเทพทั้งหลาย
-      เขามีอำนาจเหนือท้องฟ้า สายฟ้า และพายุ
-      โดยมักถูกมองว่าเป็นเทพที่มีอำนาจและมีบทบาทสำคัญ
-      ในการรักษาความสมดุลของโลกแห่งเทพเจ้า
-    </p>
-
-  </div>
-
-
-  <!-- ABILITIES -->
-
-  <div class="abilities">
-
-    <h2 class="section-title">
-      ความสามารถ
-    </h2>
-
-    <div class="ability-grid">
-
-
-      <div class="ability">
-
-        <div class="ability-name">
-          Thunderbolt
-        </div>
-
-        <div class="ability-text">
-          สามารถสร้างและควบคุมสายฟ้า
-          เพื่อโจมตีศัตรูหรือทำลายสิ่งต่าง ๆ
-        </div>
-
-      </div>
-
-
-      <div class="ability">
-
-        <div class="ability-name">
-          Storm
-        </div>
-
-        <div class="ability-text">
-          สามารถควบคุมพายุ
-          ลม และสภาพอากาศ
-        </div>
-
-      </div>
-
-
-      <div class="ability">
-
-        <div class="ability-name">
-          Divine Authority
-        </div>
-
-        <div class="ability-text">
-          มีอำนาจเหนือเหล่าเทพ
-          และสามารถสั่งการเทพองค์อื่น
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-
-  <!-- RELATIONSHIPS -->
-
-  <div class="relationships">
-
-    <h2 class="section-title">
-      ความสัมพันธ์
-    </h2>
-
-
-    <div class="relationship">
-
-      <span class="relationship-name">
-        เฮร่า (Hera)
-      </span>
-
-      <span class="relationship-type">
-        Wife
-      </span>
-
-    </div>
-
-
-    <div class="relationship">
-
-      <span class="relationship-name">
-        โพไซดอน (Poseidon)
-      </span>
-
-      <span class="relationship-type">
-        Brother
-      </span>
-
-    </div>
-
-
-    <div class="relationship">
-
-      <span class="relationship-name">
-        ฮาเดส (Hades)
-      </span>
-
-      <span class="relationship-type">
-        Brother
-      </span>
-
-    </div>
-
-
-    <div class="relationship">
-
-      <span class="relationship-name">
-        อาธีน่า (Athena)
-      </span>
-
-      <span class="relationship-type">
-        Daughter
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <!-- FOOTER -->
-
-  <div class="bottom">
-
-    <a
-      href="index.html"
-      class="back"
-    >
-      ← กลับไปหน้า List OC
-    </a>
-
-    <span class="id">
-      OC DOCUMENT · ZEUS
-    </span>
-
-  </div>
-
-</div>
-
-</div>
 
 </body>
 </html>
